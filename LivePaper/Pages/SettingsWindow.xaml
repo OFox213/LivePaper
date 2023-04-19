@@ -1,0 +1,52 @@
+﻿<Window x:Class="LivePaper.Pages.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LivePaper.Pages"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        mc:Ignorable="d"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Topmost="True"
+        
+        Title="SettingsWindow" Height="600" Width="700" WindowStartupLocation="CenterScreen" Loaded="FormLoaded" ResizeMode="CanMinimize" Background="#FF232323">
+    <Grid>
+        <TabControl x:Name="SettingsTabControl" SelectionChanged="SettingsTabControl_SelectionChanged">
+            <TabControl.Items>
+                <TabItem Header="배경화면" IsSelected="True">
+                    <ui:TabItemHelper.Icon>
+                        <ui:SymbolIcon Symbol="Pictures"/>
+                    </ui:TabItemHelper.Icon>
+                </TabItem>
+                <TabItem Header="성능">
+                    <ui:TabItemHelper.Icon>
+                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC4A;"/>
+                    </ui:TabItemHelper.Icon>
+                </TabItem>
+                <TabItem Header="일반">
+                    <ui:TabItemHelper.Icon>
+                        <ui:SymbolIcon Symbol="Setting"/>
+                    </ui:TabItemHelper.Icon>
+                </TabItem>
+                <TabItem Header="플러그인">
+                    <ui:TabItemHelper.Icon>
+                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74C;"/>
+                    </ui:TabItemHelper.Icon>
+                </TabItem>
+                <TabItem Header="정보">
+                    <ui:TabItemHelper.Icon>
+                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;"/>
+                    </ui:TabItemHelper.Icon>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+        <ui:Frame x:Name="settingsFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,40,0,0">
+            <ui:Frame.ContentTransitions>
+                <ui:TransitionCollection>
+                    <ui:NavigationThemeTransition/>
+                </ui:TransitionCollection>
+            </ui:Frame.ContentTransitions>
+        </ui:Frame>
+    </Grid>
+</Window>

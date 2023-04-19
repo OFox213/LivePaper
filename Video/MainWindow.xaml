@@ -1,0 +1,28 @@
+﻿<Window x:Class="Video.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Video"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Left="0"
+        Top="0"
+        Background="Black"
+        Name="mainWindow"
+        WindowStartupLocation="Manual"
+        Loaded="mainWindow_Loaded"
+        Closing="mainWindow_Closing"
+        Closed="mainWindow_Closed"
+        Title="MainWindow" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}">
+    <Grid>
+        <MediaElement
+            x:Name="mediaElement" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Width="{Binding Width, ElementName=mainWindow}"
+            Height="{Binding Height, ElementName=mainWindow}"
+            LoadedBehavior="Manual"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Failed to load wallpaper (directory is not found or deleted)" VerticalAlignment="Center" Foreground="White" FontSize="26"/>
+        <TextBlock Name="testLabel" HorizontalAlignment="Center" TextWrapping="Wrap" Text="This is test label" VerticalAlignment="Top" Foreground="White" FontSize="26" Margin="0,903,0,0"/>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="LivePaper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:p="clr-namespace:LivePaper.Properties"
+        xmlns:local="clr-namespace:LivePaper"
+        xmlns:busyIndicator="https://github.com/Peoky/BusyIndicator"
+        mc:Ignorable="d"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Title="LivePaper" Height="700" Width="1200"
+        Background="#FF232323"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        MinHeight="600" MinWidth="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border x:Name="SteamIndicator" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#7F000000" >
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,20,20,20">
+                <TextBlock x:Name="SteamIndicatorText" Text="Steam에 연결중"/>
+                <ProgressBar x:Name="SteamIndicatorProgressBar" HorizontalAlignment="Stretch" Margin="0,5,0,0" IsIndeterminate="True" Opacity="1" />
+            </StackPanel>
+        </Border>
+        <ui:NavigationView x:Name="sideNav" PaneDisplayMode="Left" IsBackButtonVisible="Collapsed" ItemInvoked="NavigationView_ItemInvoked" Grid.ColumnSpan="2">
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem Icon="home" Content="{x:Static p:Resources.Main}" x:Name="Home" Tag="Main"/>
+                <ui:NavigationViewItem Icon="download" Content="{x:Static p:Resources.SteamWorkshop}" x:Name="SteamWorkshop" Tag="SteamWorkshop"/>
+                <ui:NavigationViewItem Icon="folder" Content="{x:Static p:Resources.MyAsset}" x:Name="MyAsset" Tag="MyAsset"/>
+                <ui:NavigationViewItem Content="{x:Static p:Resources.MonitorSetting}" x:Name="MonitorLayout" Tag="MonitorLayout">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7F4;"/>
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+            </ui:NavigationView.MenuItems>
+            <ui:Frame x:Name="contentFrame" NavigationUIVisibility="Hidden" >
+                <ui:Frame.ContentTransitions>
+                    <ui:TransitionCollection>
+                        <ui:NavigationThemeTransition/>
+                    </ui:TransitionCollection>
+                </ui:Frame.ContentTransitions>
+            </ui:Frame>
+        </ui:NavigationView>
+        <Button Content="Test:AddItem" Click="Button_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,100"/>
+        <Button Content="Test:DelItem" x:Name="delItemButton"  Click="delItemButton_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,140"/>
+    </Grid>
+</Window>
